@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | Electrical Engineer — Embedded & Arduino</title>
+  <meta name="description" content="Portfolio Electrical Engineer fokus Embedded System dan Arduino Programming." />
+  <link rel="stylesheet" href="style/stylee.css">
+</head>
+
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">
+        <div class="logo"></div>
+        <span>Nyoman Sugiarte</span>
+      </a>
+
+      <nav class="menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#lab">Lab</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" id="themeBtn" href="javascript:void(0)">🌓 Theme</a>
+        <a class="btn primary" href="CV_NyomanSugiarte.pdf" download="CV_NyomanSugiarte.pdf">⬇️ Download CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="top">
+    <section class="hero">
+      <div class="card hero-main">
+        <div class="kicker">⚡ Electrical Engineer • Embedded Systems • Arduino Programming</div>
+        <h1>Halo, saya <span style="color:#c4b5fd;">Nyoman Sugiarte</span>
+          <p class="lead">
+            Fokus saya: firmware (Arduino/ESP32), sensor & aktuator, komunikasi (I2C/SPI/UART),
+            dan integrasi hardware–software untuk prototyping sampai production-ready.
+          </p>
+
+          <div class="row">
+            <span class="pill"> MCU: Arduino • ESP32 • STM32 (opsional)</span>
+            <span class="pill"> SBC: Rasberry pi • Jetson Nano • Orange pi</span>
+            <span class="pill"> OS: Linix Ubuntu • Windows</span>
+            <span class="pill"> IoT: MQTT • HTTP • BLE • Wi-Fi</span>
+            <span class="pill"> Software Tools: Arduino IDE • Visual Studio Code • KiCad</span>
+
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">Lihat Proyek</a>
+            <a class="btn" href="#contact">Kontak</a>
+            <a class="btn" href="https://github.com/NyomanSugiarte" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn" href="#" target="_blank" rel="noreferrer">YouTube Demo</a>
+          </div>
+      </div>
+
+      <aside class="card hero-side">
+        <div class="avatar">
+          <img src="images/PCB.jpg" alt="">
+        </div>
+        <div class="stats">
+          <div class="stat"><b>15+</b><small>Prototype</small></div>
+          <div class="stat"><b>8+</b><small>Boards</small></div>
+          <div class="stat"><b>20+</b><small>Modules</small></div>
+        </div>
+        <p class="note" style="margin-top:12px">
+          Tip: kalau kamu punya foto PCB / wiring / robot, taruh di sini biar terlihat “engineer”.
+        </p>
+      </aside>
+    </section>
+
+    <section id="about">
+      <div class="section-title">
+        <div>
+          <h2>About</h2>
+          <p>Siapa kamu + apa yang kamu kerjakan + impact.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card box col-8">
+          <p class="muted" style="margin-top:0">
+            Saya seorang Electrical Engineer yang berfokus pada <b>Embedded System</b> dan <b>Arduino Programming</b>.
+            Saya terbiasa mengerjakan proyek mulai dari perancangan rangkaian, pemilihan komponen,
+            penulisan firmware, sampai pengujian (debugging) di lapangan.
+            Saya suka membuat sistem yang <i>robust</i>: stabil, hemat daya, dan mudah dipelihara.
+          </p>
+          <div class="row">
+            <span class="pill">✅ Sensor Fusion</span>
+            <span class="pill">✅ Power Budgeting</span>
+            <span class="pill">✅ EMI/Noise Awareness</span>
+            <span class="pill">✅ Field Troubleshooting</span>
+          </div>
+        </div>
+
+        <div class="card box col-4">
+          <h3 style="margin:0 0 8px">Quick Info</h3>
+          <div class="muted">
+            <div>📧 komangugik821@domain.com</div>
+            <div>📍 Lampung/Indonesia</div>
+            <div>🔗 GitHub: github.com/NyomanSugiarte</div>
+            <div>🧾 CV: PDF</div>
+          </div>
+          <p class="note" style="margin-top:10px">
+            CV dapat di Lihat dengan download CV di atas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-title">
+        <div>
+          <h2>Skills</h2>
+          <p>Skill yang relevan untuk embedded & hardware.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card box col-6">
+          <h3 style="margin-top:0">Firmware</h3>
+          <div class="row">
+            <span class="pill">Arduino IDE</span><span class="pill">PlatformIO</span><span class="pill">C/C++</span>
+            <span class="pill">Python</span><span class="pill">ROS</span>
+          </div>
+          <p class="note">Contoh: debouncing, watchdog, state machine, non-blocking loop.</p>
+        </div>
+
+        <div class="card box col-6">
+          <h3 style="margin-top:0">Protocols</h3>
+          <div class="row">
+            <span class="pill">I2C</span><span class="pill">SPI</span><span class="pill">UART</span>
+            <span class="pill">RS485</span>
+          </div>
+          <p class="note">Contoh: parsing frame, CRC, retry strategy.</p>
+        </div>
+
+        <div class="card box col-6">
+          <h3 style="margin-top:0">IoT & Connectivity</h3>
+          <div class="row">
+            <span class="pill">Wi-Fi</span><span class="pill">BLE</span><span class="pill">MQTT</span>
+            <span class="pill">HTTP/REST</span>
+          </div>
+        </div>
+
+        <div class="card box col-6">
+          <h3 style="margin-top:0">Hardware</h3>
+          <div class="row">
+            <span class="pill">Schematic</span><span class="pill">PCB Layout</span><span class="pill">Power
+              Regulation</span>
+            <span class="pill">Motor Driver</span><span class="pill">Signal Integrity</span>
+          </div>
+        </div>
+        <div class="card box col-6">
+          <h3 style="margin-top:0">3D Desain</h3>
+          <div class="row">
+            <span class="pill">Solidwork</span><span class="pill">Fusion360</span>
+          </div>
+          <p class="note">Contoh: debouncing, watchdog, state machine, non-blocking loop.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">
+        <div>
+          <h2>Projects</h2>
+          <p>3 proyek terbaik (jelaskan input–proses–output + metrik).</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card box col-4 project">
+          <div class="thumb"><img class="image" src="images/HEXA.jpg" alt=""><img class="image" src="images/ROS.jpg"
+              alt=""></div>
+          <div>
+            <h3 style="margin:0 0 6px">Hexapod Robot</h3>
+            <p class="muted" style="margin:0 0 10px">
+              Kontrol Servo + Gerakan Kaki + Otomasi Navigasi. Logging data & proteksi overcurrent.
+            </p>
+            <div class="row">
+              <span class="pill">Jetson Nano</span><span class="pill">Dynamixel U2D2</span><span
+                class="pill">Sensors</span>
+            </div>
+          </div>
+          <div class="row">
+            <a class="btn" href="Detail/Hexapod_detail.html" rel="noreferrer">Detail</a>
+
+          </div>
+        </article>
+
+        <article class="card box col-4 project">
+          <div class="thumb"><img class="imageASV" src="images/ASV.jpg" alt=""></div>
+          <div>
+            <h3 style="margin:0 0 6px">Autonomus Survace Vessel</h3>
+            <p class="muted" style="margin:0 0 10px">
+              Gps Navigation + HTTP + dashboard. Ada mode offline & auto-reconnect.
+            </p>
+            <div class="row">
+              <span class="pill">Jetson Nano</span><span class="pill">Pixhawk</span><span class="pill">Open
+                CV</span><span class="pill">Mission Planner</span>
+            </div>
+          </div>
+          <div class="row">
+            <a class="btn" href="#" target="_blank" rel="noreferrer">Demo</a>
+            <a class="btn" href="#" target="_blank" rel="noreferrer">Repo</a>
+          </div>
+        </article>
+
+        <article class="card box col-4 project">
+          <div class="thumb"><img src="images/ARM.jpg" alt=""></div>
+          <div>
+            <h3 style="margin:0 0 6px">ARM Robot 4DOF</h3>
+            <p class="muted" style="margin:0 0 10px">
+              Kontrol gerakan ARM, Trajectory Planning sederhana, dan proteksi fault.
+            </p>
+            <div class="row">
+              <span class="pill">Rasberry pi</span><span class="pill">Dynamicel U2D2</span><span
+                class="pill">UART</span><span class="pill">ESP32</span>
+            </div>
+          </div>
+          <div class="row">
+            <a class="btn" href="#" target="_blank" rel="noreferrer">Demo</a>
+            <a class="btn" href="#" target="_blank" rel="noreferrer">Repo</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <section id="contact">
+      <div class="section-title">
+        <div>
+          <h2>Contact</h2>
+          <p>Kirim pesan (demo) atau klik email langsung.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card box col-6">
+          <h3 style="margin-top:0">Kirim pesan</h3>
+          <form id="contactForm">
+            <div style="margin-bottom:10px"><input class="input" name="name" placeholder="Nama" required /></div>
+            <div style="margin-bottom:10px"><input class="input" type="email" name="email" placeholder="Email"
+                required /></div>
+            <div style="margin-bottom:10px"><textarea class="input" name="message" placeholder="Pesan"
+                required></textarea></div>
+            <button class="btn primary" type="submit">Kirim</button>
+            <p class="note" id="contactNote" style="margin:10px 0 0"></p>
+          </form>
+        </div>
+
+        <div class="card box col-6">
+          <h3 style="margin-top:0">Hubungi langsung</h3>
+          <p class="muted" style="margin-top:0">Email: <a class="btn"
+              href="mailto:komangugik821@gmail.com">komangugik821@gmail.com</a></p>
+          <p class="muted">WhatsApp: <a class="btn" href="https://wa.me/6282179470355" target="_blank"
+              rel="noreferrer">Chat</a></p>
+          <p class="muted">GitHub: <a class="btn" href="https://github.com/NyomanSugiarte" target="_blank"
+              rel="noreferrer">Profile</a></p>
+          <p class="muted">LinkedIn: <a class="btn" href="https://www.linkedin.com/" target="_blank"
+              rel="noreferrer">Profile</a></p>
+          <p class="note">Form kiri masih demo (tanpa backend). Bisa saya sambungkan ke Formspree/Google Form/API.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      © <span id="year"></span> Nama Kamu — Electrical Engineer (Embedded)
+    </div>
+  </main>
+  <link rel="stylesheet" href="script/script.js">
+</body>
+
+</html>
