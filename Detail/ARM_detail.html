@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARM Robot 4DOF Project Detail</title>
+  <meta name="description"
+    content="Detail proyek Robot ARM 4DOF — kontrol gerak, trajectory sederhana, aktuator, komunikasi, dan dokumentasi." />
+  <link rel="stylesheet" href="../style/stylee.css" />
+</head>
+
+<body id="top">
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="../index.html#projects" title="Back to Portfolio">
+        <div class="logo"></div>
+        <span>ARM Robot 4DOF</span>
+      </a>
+
+      <div class="dropdown">
+        <button class="btn primary dropdown-toggle" type="button" id="navDropdownBtn" aria-haspopup="true"
+            aria-expanded="false">
+            ☰ Menu
+        </button>
+
+        <div class="dropdown-menu" id="navDropdownMenu" role="menu" aria-labelledby="navDropdownBtn">
+            <button class="dropdown-item" id="themeBtn" type="button">🌓 Theme</button>
+
+            <a class="dropdown-item" href="#about_project">About</a>
+            <a class="dropdown-item" href="#architecture">Architecture</a>
+            <a class="dropdown-item" href="#control">Control</a>
+            <a class="dropdown-item" href="#specs">Specs</a>
+            <a class="dropdown-item" href="#Documentation">Documentation</a>
+            <a class="dropdown-item" href="../index.html#projects">⬅ Kembali</a>
+        </div>
+    </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card hero-main">
+        <div class="kicker">Robot Arm • 4DOF • Trajectory Planning</div>
+        <h1 style="margin:0 0 6px">
+          ARM Robot <span style="color:#c4b5fd;">4DOF</span>
+        </h1>
+
+        <p class="lead">
+          Proyek robot lengan 4 derajat kebebasan (4DOF) untuk kontrol posisi dan gerakan,
+          dilengkapi trajectory planning sederhana serta proteksi fault.
+          Sistem dibuat modular agar mudah dikembangkan ke mode pick-and-place, kalibrasi, dan kontrol berbasis GUI.
+        </p>
+
+        <div class="row" style="margin-top:12px">
+          <span class="pill">Raspberry Pi</span>
+          <span class="pill">Dynamixel / Servo</span>
+          <span class="pill">UART</span>
+          <span class="pill">ESP32 (opsional)</span>
+          <span class="pill">Trajectory</span>
+        </div>
+
+        <div class="hero-actions" style="margin-top:14px">
+          <a class="btn primary" href="#Documentation">Lihat Video</a>
+          <a class="btn" href="#control">Kontrol & Trajectory</a>
+          
+        </div>
+      </div>
+
+      <aside class="card hero-side">
+        <div class="avatar">
+          <img src="../images/ARM.jpg" alt="Robot Arm 4DOF - photo" />
+        </div>
+
+        <p class="note" style="margin-top:12px">
+          Robot ARM 4DOF untuk eksperimen kontrol gerak.
+        </p>
+
+        <div class="stats" style="margin-top:12px">
+          <div class="stat"><b>4</b><small>DOF</small></div>
+          <div class="stat"><b>UART</b><small>Comms</small></div>
+          <div class="stat"><b>Modular</b><small>Control</small></div>
+        </div>
+
+        <p class="note" style="margin-top:10px">
+          Catatan: ganti jenis servo/driver sesuai hardware kamu yang final.
+        </p>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about_project">
+      <div class="section-title">
+        <div>
+          <h2>About Project</h2>
+          <p>Tujuan, konteks, dan output yang dihasilkan.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card box col-8">
+          <p class="muted" style="margin-top:0;">
+            Robot ARM 4DOF dikembangkan untuk menguji kontrol gerak dan koordinasi multi-joint.
+            Sistem menerima perintah target posisi (angle atau pose) dan menjalankan pergerakan secara halus melalui
+            interpolasi/trajectory sederhana. Fokus proyek adalah kestabilan gerak, repeatability, dan struktur kontrol
+            yang mudah dikembangkan untuk skenario pick-and-place.
+            <br /><br />
+            Proteksi fault diterapkan untuk menghindari gerakan ekstrem, mencegah joint melewati batas, dan memberikan
+            state aman saat terjadi error (misalnya komunikasi putus atau overload).
+          </p>
+
+          <div class="row" style="margin-top:10px">
+            <span class="pill">✅ Control multi-joint</span>
+            <span class="pill">✅ Simple trajectory</span>
+            <span class="pill">✅ Limit & safety</span>
+            <span class="pill">✅ Expandable GUI</span>
+          </div>
+        </div>
+
+        <div class="card box col-4">
+          <h3 style="margin:0 0 8px">Komponen</h3>
+          <div class="muted">
+            <div>- Raspberry Pi (compute/controller)</div>
+            <div>- Servo / Dynamixel (aktuator)</div>
+            <div>- U2D2 (opsional untuk Dynamixel)</div>
+            <div>- UART (komunikasi)</div>
+          </div>
+
+          <h3 style="margin:14px 0 8px">Software</h3>
+          <div class="muted">
+            <div>- Python/C++ (control & interface)</div>
+            <div>- (Opsional) ROS/ROS2</div>
+            <div>- (Opsional) GUI dashboard</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section id="architecture">
+      <div class="section-title">
+        <div>
+          <h2>System Architecture</h2>
+          <p>Pembagian kontrol, komunikasi, dan aktuator.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card box col-6">
+          <h3 style="margin-top:0">Control Layer</h3>
+          <ul class="muted" style="margin-top:10px; padding-left:18px;">
+            <li>Input target (angle/pose)</li>
+            <li>Trajectory planning sederhana (interpolasi)</li>
+            <li>State machine untuk mode operasi (idle/move/fault)</li>
+            <li>Limit joint & safety checks</li>
+          </ul>
+        </div>
+
+        <div class="card box col-6">
+          <h3 style="margin-top:0">Actuator Layer</h3>
+          <ul class="muted" style="margin-top:10px; padding-left:18px;">
+            <li>Servo control via UART / driver</li>
+            <li>Sinkronisasi multi-joint agar gerak halus</li>
+            <li>Fault handling (stop / neutral pose)</li>
+            <li>Optional feedback: current/temp/position</li>
+          </ul>
+        </div>
+
+        <div class="card box col-12">
+          <h3 style="margin-top:0">Data Flow (Ringkas)</h3>
+          <p class="muted" style="margin-top:10px;">
+            Command (target pose) → <b>Controller (Raspberry Pi)</b> → trajectory → UART → <b>Servo/Actuator</b>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTROL -->
+    <section id="control">
+      <div class="section-title">
+        <div>
+          <h2>Motion & Control</h2>
+          <p>Trajectory, proteksi, dan mode operasi.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card box col-6">
+          <h3 style="margin-top:0">Trajectory Planning (Simple)</h3>
+          <p class="muted" style="margin-top:10px;">
+            Untuk menghasilkan gerakan halus, sistem menggunakan interpolasi sudut antar titik.
+            Ini mencegah gerakan mendadak yang bisa menyebabkan jerk tinggi atau stress mekanik.
+          </p>
+          <ul class="muted" style="margin-top:10px; padding-left:18px;">
+            <li>Linear interpolation per joint</li>
+            <li>Speed/acc limit (opsional)</li>
+            <li>Step-based motion update</li>
+          </ul>
+        </div>
+
+        <div class="card box col-6">
+          <h3 style="margin-top:0">Safety & Fault Handling</h3>
+          <p class="muted" style="margin-top:10px;">
+            Sistem dibuat aman untuk testing: joint dibatasi, dan saat error komunikasi/overload terjadi,
+            robot masuk ke state aman.
+          </p>
+          <ul class="muted" style="margin-top:10px; padding-left:18px;">
+            <li>Joint limit constraints</li>
+            <li>Command timeout → stop</li>
+            <li>Neutral pose on fault</li>
+          </ul>
+        </div>
+
+        <div class="card box col-12">
+          <h3 style="margin-top:0">What I Built (Peran Utama)</h3>
+          <p class="muted" style="margin-top:10px;">
+            Contoh yang bisa kamu sesuaikan:
+            saya membuat kontrol multi-joint, trajectory sederhana, dan sistem proteksi fault untuk mencegah
+            pergerakan ekstrem saat pengujian.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECS -->
+    <section id="specs">
+      <div class="section-title">
+        <div>
+          <h2>Specs (Summary)</h2>
+          <p>Ringkasan spesifikasi yang mudah dibaca.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card box col-6">
+          <h3 style="margin-top:0">Hardware</h3>
+          <div class="muted">
+            <div><b>Compute:</b> Raspberry Pi</div>
+            <div><b>Actuator:</b> Servo / Dynamixel</div>
+            <div><b>Comms:</b> UART</div>
+            <div><b>Optional:</b> U2D2 / ESP32</div>
+          </div>
+        </div>
+
+        <div class="card box col-6">
+          <h3 style="margin-top:0">Software</h3>
+          <div class="muted">
+            <div><b>Control:</b> multi-joint control</div>
+            <div><b>Trajectory:</b> linear interpolation</div>
+            <div><b>Safety:</b> joint limit + fault state</div>
+            <div><b>Optional:</b> ROS/ROS2 + GUI</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCUMENTATION -->
+    <section id="Documentation">
+      <div class="section-title">
+        <div>
+          <h2>Video Documentation</h2>
+          <p>Ganti source video sesuai file kamu.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card box col-4 project">
+          <div class="thumbVid">
+            <video class="media" autoplay muted loop playsinline preload="metadata">
+              <source src="../video/ARM1.mp4" type="video/mp4" />
+              Browser kamu tidak mendukung video.
+            </video>
+          </div>
+          <h3 style="margin:10px 0 0">ARM Demo</h3>
+          <p class="note" style="margin-top:6px;">Basic motion test (placeholder).</p>
+        </div>
+
+        <div class="card box col-4 project">
+          <div class="thumbVid">
+            <video class="media" autoplay muted loop playsinline preload="metadata">
+              <source src="../video/ARM2.mp4" type="video/mp4" />
+              Browser kamu tidak mendukung video.
+            </video>
+          </div>
+          <h3 style="margin:10px 0 0">Pick & Place</h3>
+          <p class="note" style="margin-top:6px;">Trajectory test (placeholder).</p>
+        </div>
+
+        <div class="card box col-4 project">
+          <div class="thumbVid">
+            <video class="media" autoplay muted loop playsinline preload="metadata">
+              <source src="../video/ARM3.mp4" type="video/mp4" />
+              Browser kamu tidak mendukung video.
+            </video>
+          </div>
+          <h3 style="margin:10px 0 0">Safety Test</h3>
+          <p class="note" style="margin-top:6px;">Fault handling (placeholder).</p>
+        </div>
+      </div>
+
+      <div class="card box" style="margin-top:14px">
+        <h3 style="margin-top:0">Links</h3>
+        <p class="muted" style="margin:10px 0 0">
+          Demo: <a class="btn" href="#" target="_blank" rel="noreferrer">YouTube Demo</a>
+          Repo: <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub Repo</a>
+        </p>
+        <p class="note" style="margin-top:10px;">
+          Isi link demo/repo kalau sudah ada.
+        </p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      © <span id="year"></span> Nyoman Sugiarte — ARM Robot 4DOF
+      <span style="display:inline-block; margin-left:10px;">
+        <a class="btn" href="#top">⬆️ Back to top</a>
+      </span>
+    </div>
+  </main>
+
+  <script src="../script/script.js"></script>
+</body>
+
+</html>

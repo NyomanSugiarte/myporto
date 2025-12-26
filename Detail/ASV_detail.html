@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASV Project Detail | Autonomous Surface Vessel</title>
+    <meta name="description"
+        content="Detail proyek Autonomous Surface Vessel (ASV) — arsitektur sistem, navigasi GPS, dashboard, computer vision, dan dokumentasi." />
+    <link rel="stylesheet" href="../style/stylee.css" />
+</head>
+
+<body id="top">
+    <!-- NAV -->
+    <header class="nav">
+        <div class="nav-inner">
+            <a class="brand" href="../index.html#projects" title="Back to Portfolio">
+                <div class="logo"></div>
+                <span>ASV Project Detail</span>
+            </a>
+            <div class="dropdown">
+                <button class="btn primary dropdown-toggle" type="button" id="navDropdownBtn" aria-haspopup="true"
+                    aria-expanded="false">
+                    ☰ Menu
+                </button>
+
+                <div class="dropdown-menu" id="navDropdownMenu" role="menu" aria-labelledby="navDropdownBtn">
+                    <button class="dropdown-item" id="themeBtn" type="button">🌓 Theme</button>
+
+                    <a class="dropdown-item" href="#about_project">About</a>
+                    <a class="dropdown-item" href="#architecture">Architecture</a>
+                    <a class="dropdown-item" href="#control">Control</a>
+                    <a class="dropdown-item" href="#specs">Specs</a>
+                    <a class="dropdown-item" href="#Documentation">Documentation</a>
+                    <a class="dropdown-item" href="../index.html#projects">⬅ Kembali</a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="wrap">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="card hero-main">
+                <div class="kicker">Autonomous Surface Vessel • GPS Navigation • Dashboard</div>
+                <h1 style="margin:0 0 6px">
+                    Autonomous Surface Vessel <span style="color:#c4b5fd;">(ASV)</span>
+                </h1>
+
+                <p class="lead">
+                    Proyek ASV (kapal permukaan otonom) yang mampu melakukan navigasi berbasis GPS, monitoring melalui
+                    dashboard,
+                    serta mendukung mode offline dan auto-reconnect. Sistem disiapkan untuk misi survei, pemetaan area
+                    air, dan
+                    pengujian platform robotik berbasis Pixhawk.
+                </p>
+
+                <div class="row" style="margin-top:12px">
+                    <span class="pill">Jetson Nano</span>
+                    <span class="pill">Pixhawk</span>
+                    <span class="pill">GPS Navigation</span>
+                    <span class="pill">HTTP / Telemetry</span>
+                    <span class="pill">OpenCV (opsional)</span>
+                </div>
+
+                <div class="hero-actions" style="margin-top:14px">
+                    <a class="btn primary" href="#Documentation">Lihat Video</a>
+                    <a class="btn" href="#architecture">Arsitektur Sistem</a>
+                    <a class="btn" href="../index.html#projects">⬅ Kembali</a>
+                </div>
+            </div>
+
+            <aside class="card hero-side">
+                <div class="avatar">
+                    <img src="../images/ASV.jpg" alt="Autonomous Surface Vessel - photo" />
+                </div>
+
+                <p class="note" style="margin-top:12px">
+                    Platform ASV untuk navigasi dan monitoring.
+                </p>
+
+                <div class="stats" style="margin-top:12px">
+                    <div class="stat"><b>GPS</b><small>Waypoint</small></div>
+                    <div class="stat"><b>Online/Offline</b><small>Mode</small></div>
+                    <div class="stat"><b>Realtime</b><small>Dashboard</small></div>
+                </div>
+
+                <p class="note" style="margin-top:10px">
+                    Catatan: spesifikasi sensor tambahan bisa kamu update sesuai versi terbaru.
+                </p>
+            </aside>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about_project">
+            <div class="section-title">
+                <div>
+                    <h2>About Project</h2>
+                    <p>Tujuan, use case, dan gambaran umum platform.</p>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card box col-8">
+                    <p class="muted" style="margin-top:0;">
+                        ASV dikembangkan sebagai platform untuk uji coba navigasi berbasis GPS dan kontrol misi
+                        menggunakan Pixhawk.
+                        Data telemetri ditampilkan melalui dashboard (monitoring posisi, status, dan parameter penting).
+                        Sistem dibuat robust untuk penggunaan lapangan dengan dukungan mode offline serta mekanisme
+                        auto-reconnect,
+                        sehingga operasi tetap stabil meskipun jaringan tidak selalu tersedia.
+                        <br /><br />
+                        Arsitektur modular memungkinkan penambahan fitur seperti computer vision (deteksi objek/marker),
+                        pengambilan data sensor (kedalaman, kualitas air, dsb.), serta integrasi pipeline data untuk
+                        analisis.
+                    </p>
+
+                    <div class="row" style="margin-top:10px">
+                        <span class="pill">✅ Waypoint navigation</span>
+                        <span class="pill">✅ Dashboard monitoring</span>
+                        <span class="pill">✅ Offline + auto-reconnect</span>
+                        <span class="pill">✅ Expandable sensors</span>
+                    </div>
+                </div>
+
+                <div class="card box col-4">
+                    <h3 style="margin:0 0 8px">Komponen</h3>
+                    <div class="muted">
+                        <div>- Jetson Nano (compute / vision / network)</div>
+                        <div>- Pixhawk (flight controller)</div>
+                        <div>- GPS (navigation)</div>
+                        <div>- Telemetry link (radio / network)</div>
+                    </div>
+
+                    <h3 style="margin:14px 0 8px">Software</h3>
+                    <div class="muted">
+                        <div>- Mission Planner / Ground Station</div>
+                        <div>- HTTP / Telemetry bridge</div>
+                        <div>- (Opsional) OpenCV</div>
+                    </div>
+
+                    <p class="note" style="margin-top:12px;">
+                        Tambahkan sensor: depth/sonar, IMU, kamera, dll kalau sudah ada.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARCHITECTURE -->
+        <section id="architecture">
+            <div class="section-title">
+                <div>
+                    <h2>System Architecture</h2>
+                    <p>Pembagian peran Pixhawk, compute, dan dashboard.</p>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card box col-6">
+                    <h3 style="margin-top:0">Control & Autopilot (Pixhawk)</h3>
+                    <ul class="muted" style="margin-top:10px; padding-left:18px;">
+                        <li>Eksekusi waypoint dan kontrol gerak (mode auto/manual)</li>
+                        <li>Stabilisasi dan kontrol motor/aktuator (tergantung konfigurasi)</li>
+                        <li>Sensor fusion internal (GPS/IMU) untuk estimasi posisi</li>
+                        <li>Telemetry output untuk monitoring</li>
+                    </ul>
+                </div>
+
+                <div class="card box col-6">
+                    <h3 style="margin-top:0">Compute & Data Layer (Jetson)</h3>
+                    <ul class="muted" style="margin-top:10px; padding-left:18px;">
+                        <li>Bridge data telemetri → dashboard (HTTP / WebSocket opsional)</li>
+                        <li>Logging data perjalanan (posisi, kecepatan, status)</li>
+                        <li>Computer vision (opsional) untuk deteksi objek/marker</li>
+                        <li>Handling jaringan: offline mode + auto-reconnect</li>
+                    </ul>
+                </div>
+
+                <div class="card box col-12">
+                    <h3 style="margin-top:0">Data Flow (Ringkas)</h3>
+                    <p class="muted" style="margin-top:10px;">
+                        <b>Pixhawk</b> → Telemetry → <b>Jetson Nano (bridge + processing)</b> → <b>Dashboard</b>
+                        (monitoring)
+                        → (opsional) perintah/konfigurasi kembali ke Pixhawk.
+                    </p>
+                    <p class="note" style="margin-top:8px;">
+                        Kalau kamu pakai MAVLink, bagian telemetry bridge bisa dijelaskan lebih teknis.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NAVIGATION -->
+        <section id="navigation">
+            <div class="section-title">
+                <div>
+                    <h2>Navigation & Robustness</h2>
+                    <p>Poin inti: waypoint + stabil di kondisi jaringan tidak ideal.</p>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card box col-6">
+                    <h3 style="margin-top:0">Waypoint Navigation</h3>
+                    <p class="muted" style="margin-top:10px;">
+                        ASV menjalankan misi berdasarkan titik koordinat (waypoints) yang diset melalui ground
+                        station/dashboard.
+                        Sistem dapat berjalan di mode manual untuk testing, dan mode auto untuk eksekusi misi.
+                    </p>
+                    <ul class="muted" style="margin-top:10px; padding-left:18px;">
+                        <li>Set & update waypoint</li>
+                        <li>Monitoring posisi dan arah</li>
+                        <li>Logging jalur untuk evaluasi</li>
+                    </ul>
+                </div>
+
+                <div class="card box col-6">
+                    <h3 style="margin-top:0">Offline Mode + Auto-Reconnect</h3>
+                    <p class="muted" style="margin-top:10px;">
+                        Saat jaringan terputus, dashboard dan data layer dibuat tetap aman:
+                        data bisa disimpan lokal sementara dan akan sinkron saat koneksi kembali.
+                    </p>
+                    <ul class="muted" style="margin-top:10px; padding-left:18px;">
+                        <li>Retry strategy (reconnect loop)</li>
+                        <li>Fallback local logging</li>
+                        <li>Heartbeat / status connection</li>
+                    </ul>
+                </div>
+
+                <div class="card box col-12">
+                    <h3 style="margin-top:0">What I Built (Peran Utama)</h3>
+                    <p class="muted" style="margin-top:10px;">
+                        Contoh yang bisa kamu sesuaikan:
+                        saya membangun integrasi Pixhawk–Jetson, sistem dashboard monitoring, serta mekanisme offline
+                        mode dan
+                        auto-reconnect agar stabil saat uji lapangan.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPECS -->
+        <section id="specs">
+            <div class="section-title">
+                <div>
+                    <h2>Specs (Summary)</h2>
+                    <p>Ringkasan spesifikasi untuk reviewer.</p>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card box col-6">
+                    <h3 style="margin-top:0">Hardware</h3>
+                    <div class="muted">
+                        <div><b>Compute:</b> Jetson Nano</div>
+                        <div><b>Autopilot:</b> Pixhawk</div>
+                        <div><b>Navigation:</b> GPS</div>
+                        <div><b>Communication:</b> Telemetry / network link</div>
+                        <div><b>Optional:</b> Camera / additional sensors</div>
+                    </div>
+                </div>
+
+                <div class="card box col-6">
+                    <h3 style="margin-top:0">Software</h3>
+                    <div class="muted">
+                        <div><b>Mission:</b> waypoint / manual</div>
+                        <div><b>Dashboard:</b> monitoring + logging</div>
+                        <div><b>Connectivity:</b> offline + auto-reconnect</div>
+                        <div><b>Optional:</b> OpenCV pipeline</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DOCUMENTATION -->
+        <section id="Documentation">
+            <div class="section-title">
+                <div>
+                    <h2>Video Documentation</h2>
+                    <p>Ganti source video sesuai file kamu.</p>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card box col-4 project">
+                    <div class="thumbVid">
+                        <video class="media" autoplay muted loop playsinline preload="metadata">
+                            <source src="../video/ASV1.mp4" type="video/mp4" />
+                            Browser kamu tidak mendukung video.
+                        </video>
+                    </div>
+                    <h3 style="margin:10px 0 0">ASV Demo</h3>
+                    <p class="note" style="margin-top:6px;">Waypoint navigation / monitoring test.</p>
+                </div>
+
+                <div class="card box col-4 project">
+                    <div class="thumbVid">
+                        <video class="media" autoplay muted loop playsinline preload="metadata">
+                            <source src="../video/ASV2.mp4" type="video/mp4" />
+                            Browser kamu tidak mendukung video.
+                        </video>
+                    </div>
+                    <h3 style="margin:10px 0 0">Dashboard</h3>
+                    <p class="note" style="margin-top:6px;">Realtime telemetry display (placeholder).</p>
+                </div>
+
+                <div class="card box col-4 project">
+                    <div class="thumbVid">
+                        <video class="media" autoplay muted loop playsinline preload="metadata">
+                            <source src="../video/ASV3.mp4" type="video/mp4" />
+                            Browser kamu tidak mendukung video.
+                        </video>
+                    </div>
+                    <h3 style="margin:10px 0 0">Field Test</h3>
+                    <p class="note" style="margin-top:6px;">Uji lapangan / stability (placeholder).</p>
+                </div>
+            </div>
+
+            <div class="card box" style="margin-top:14px">
+                <h3 style="margin-top:0">Links</h3>
+                <p class="muted" style="margin:10px 0 0">
+                    Demo: <a class="btn" href="#" target="_blank" rel="noreferrer">YouTube Demo</a>
+                    Repo: <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub Repo</a>
+                </p>
+                <p class="note" style="margin-top:10px;">
+                    Isi link demo/repo kalau sudah ada.
+                </p>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            © <span id="year"></span> Nyoman Sugiarte — ASV Project
+            <span style="display:inline-block; margin-left:10px;">
+                <a class="btn" href="#top">⬆️ Back to top</a>
+            </span>
+        </div>
+    </main>
+
+    <script src="../script/script.js"></script>
+</body>
+
+</html>

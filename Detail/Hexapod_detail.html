@@ -1,101 +1,369 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heaxapod project detail</title>
-    <link rel="stylesheet" href="../style/stylee.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hexapod Project Detail | ASHIBOT</title>
+    <meta name="description"
+        content="Detail proyek Hexapod Robot (ASHIBOT) untuk Kontes Robot SAR Indonesia (KRSRI) — arsitektur sistem, kontrol gait, komponen, dan dokumentasi." />
+    <link rel="stylesheet" href="../style/stylee.css" />
 </head>
 
-<body>
+<body id="top">
+    <!-- NAV -->
     <header class="nav">
         <div class="nav-inner">
-            <a class="brand" href="#top">
+            <a class="brand" href="../index.html#projects" title="Back to Portfolio">
                 <div class="logo"></div>
                 <span>Hexapod Robot Project</span>
             </a>
-            <nav class="menu">
-                <a class="btn" href="#about_project">about project</a>
-                <a class="btn" href="#Documentation">Documentation</a>
-            </nav>
+            <div class="dropdown">
+                <button class="btn primary dropdown-toggle" type="button" id="navDropdownBtn" aria-haspopup="true"
+                    aria-expanded="false">
+                    ☰ Menu
+                </button>
+
+                <div class="dropdown-menu" id="navDropdownMenu" role="menu" aria-labelledby="navDropdownBtn">
+                    <button class="dropdown-item" id="themeBtn" type="button">🌓 Theme</button>
+
+                    <a class="dropdown-item" href="#about_project">About</a>
+                    <a class="dropdown-item" href="#architecture">Architecture</a>
+                    <a class="dropdown-item" href="#control">Control</a>
+                    <a class="dropdown-item" href="#specs">Specs</a>
+                    <a class="dropdown-item" href="#Documentation">Documentation</a>
+                    <a class="dropdown-item" href="../index.html#projects">⬅ Kembali</a>
+                </div>
+            </div>
         </div>
     </header>
-    <main class="wrap" id="top">
+
+    <main class="wrap">
+        <!-- HERO -->
         <section class="hero">
             <div class="card hero-main">
-                <div class="kicker">ASHIBOT • Kontes Robot Sar Indonesia(KRSRI)</div>
-                <h1>Hexapod Robot <span style="color:#c4b5fd;">(ASHIBOT)</span>
-                    <p class="lead">
-                        Proyek Robot Hexapod ini merupakan bagian dari Program Lomba (Lomba Bidang Robotika) yang
-                        diselenggarakan oleh Pusat Prestasi Nasional (PUSPRESNAS) dalam ajang Kontes Robot Indonesia
-                        (KRI), khususnya pada Divisi Kontes Robot SAR Indonesia (KRSRI).
-                    </p>
-            </div>
-            <aside class="card hero-side">
-                <div class="avatar">
-                    <img src="../images/side.PNG" alt="">
+                <div class="kicker">ASHIBOT • Kontes Robot SAR Indonesia (KRSRI)</div>
+                <h1 style="margin: 0 0 6px">
+                    Hexapod Robot <span style="color:#c4b5fd;">(ASHIBOT)</span>
+                </h1>
+
+                <p class="lead">
+                    Proyek robot hexapod untuk misi Search & Rescue (SAR) pada ajang Kontes Robot Indonesia (KRI) —
+                    Divisi Kontes Robot SAR Indonesia (KRSRI). Fokus sistem: stabilitas gerak di medan tidak rata,
+                    integrasi sensor & kamera, serta arsitektur modular untuk teleoperation dan pengembangan autonomous
+                    navigation.
+                </p>
+
+                <div class="row" style="margin-top:12px">
+                    <span class="pill">Jetson Nano</span>
+                    <span class="pill">Teensy 4.1</span>
+                    <span class="pill">Dynamixel AX-12A</span>
+                    <span class="pill">U2D2</span>
+                    <span class="pill">Computer Vision</span>
                 </div>
 
+                <div class="hero-actions" style="margin-top:14px">
+                    <a class="btn primary" href="#Documentation">Lihat Video</a>
+                    <a class="btn" href="#architecture">Arsitektur Sistem</a>
+                    
+                </div>
+            </div>
+
+            <aside class="card hero-side">
+                <div class="avatar">
+                    <img src="../images/side.PNG" alt="3D desain Hexapod (Ashibot)" />
+                </div>
                 <p class="note" style="margin-top:12px">
                     3D Desain Hexapod Robot (Ashibot).
                 </p>
+
+                <div class="stats" style="margin-top:12px">
+                    <div class="stat"><b>6</b><small>Kaki</small></div>
+                    <div class="stat"><b>18</b><small>DOF*</small></div>
+                    <div class="stat"><b>Modular</b><small>Architecture</small></div>
+                </div>
+
+                <p class="note" style="margin-top:10px">
+                    *DOF menyesuaikan konfigurasi servo yang digunakan.
+                </p>
             </aside>
         </section>
+
+        <!-- ABOUT -->
         <section id="about_project">
             <div class="section-title">
                 <div>
                     <h2>About Project</h2>
-                    <p>project kontes robot indonesia (KRI)</p>
+                    <p>Ringkasan tujuan, konteks kompetisi, dan capaian teknis.</p>
                 </div>
             </div>
+
             <div class="grid">
                 <div class="card box col-8">
                     <p class="muted" style="margin-top:0;">
                         Robot ini dirancang sebagai robot pencari dan penyelamat (Search and Rescue) yang mampu bergerak
-                        secara stabil di medan tidak rata dan lingkungan ekstrem. Dengan konfigurasi enam kaki
-                        (hexapod), robot memiliki keunggulan dalam hal stabilitas, keseimbangan, dan kemampuan adaptasi
-                        medan, sehingga cocok untuk simulasi operasi SAR seperti reruntuhan bangunan dan area sulit
-                        dijangkau.
+                        stabil di
+                        medan tidak rata dan lingkungan ekstrem. Dengan konfigurasi enam kaki (hexapod), robot memiliki
+                        keunggulan
+                        pada stabilitas, keseimbangan, dan adaptasi medan—cocok untuk simulasi operasi SAR seperti
+                        reruntuhan
+                        bangunan dan area sulit dijangkau.
+                        <br /><br />
+                        Sistem mengintegrasikan embedded system dan komputasi berbasis SBC, dengan pembagian tugas
+                        antara pengendali
+                        gerak (aktuator kaki) dan pemrosesan tingkat tinggi (navigasi/persepsi). Arsitektur modular
+                        memudahkan
+                        pengembangan lanjutan seperti teleoperasi, autonomous navigation, dan decision-making
+                        semi-otomatis.
+                    </p>
 
-                        Sistem robot mengintegrasikan embedded system dan komputasi berbasis SBC, dengan pembagian tugas
-                        antara pengendali gerak (aktuator kaki) dan sistem pemrosesan tingkat tinggi untuk navigasi
-                        serta persepsi lingkungan. Robot dilengkapi dengan sensor navigasi dan kamera, serta mendukung
-                        pengolahan citra (computer vision) untuk membantu identifikasi objek dan situasi di area
-                        pencarian.
+                    <div class="row" style="margin-top:10px">
+                        <span class="pill">✅ Stabil di medan tidak rata</span>
+                        <span class="pill">✅ Modular & scalable</span>
+                        <span class="pill">✅ Sensor + camera ready</span>
+                        <span class="pill">✅ Monitoring & logging</span>
+                    </div>
+                </div>
 
-                        Dari sisi perangkat lunak, robot dikembangkan menggunakan pendekatan modular, mencakup
-                        pengendalian gerak (gait control), komunikasi data, serta integrasi sistem monitoring.
-                        Arsitektur ini memungkinkan pengembangan lanjutan seperti autonomous navigation, teleoperasi,
-                        dan pengambilan keputusan semi-otomatis, sesuai dengan kebutuhan kompetisi SAR.
+                <div class="card box col-4">
+                    <h3 style="margin:0 0 8px">Komponen</h3>
+                    <div class="muted">
+                        <div>- Jetson Nano (high-level compute)</div>
+                        <div>- Teensy 4.1 (low-level controller)</div>
+                        <div>- Dynamixel AX-12A (servo)</div>
+                        <div>- U2D2 (interface Dynamixel)</div>
+                    </div>
 
-                        Proyek ini tidak hanya menekankan pada performa teknis robot, tetapi juga pada rekayasa sistem,
-                        keandalan operasional, dan kerja tim multidisiplin, yang menjadi aspek penting dalam kompetisi
-                        Kontes Robot SAR Indonesia.
+                    <h3 style="margin:14px 0 8px">Software / Firmware</h3>
+                    <div class="muted">
+                        <div>- Python (high-level)</div>
+                        <div>- C/C++ (controller / library)</div>
+                        <div>- (Opsional) ROS/ROS2 untuk integrasi</div>
+                    </div>
+
+                    <p class="note" style="margin-top:12px">
+                        Catatan: detail sensor/camera bisa ditambah sesuai konfigurasi terbaru.
                     </p>
                 </div>
-                <div class="card box col-4">
-                    <h3 style="margin:0 0 8px">Componet</h3>
-                    <div class="muted">
-                        <div>- Jetson Nano</div>
-                        <div>- U2D2</div>
-                        <div>- Dynamixel AX-12A</div>
-                        <div>- Tennsy 4.1</div>
-                    </div>
-                    <h3 style="margin:0 0 8px">frimware</h3>
-                    <div class="muted">
-                        <div>- Python</div>
-                        <div>- C++</div>
-                    </div>
+            </div>
+        </section>
+
+        <!-- ARCHITECTURE -->
+        <section id="architecture">
+            <div class="section-title">
+                <div>
+                    <h2>System Architecture</h2>
+                    <p>Pembagian tugas komputasi & kontrol untuk stabilitas dan pengembangan fitur.</p>
                 </div>
             </div>
 
+            <div class="grid">
+                <div class="card box col-6">
+                    <h3 style="margin-top:0">High-level (Perception / Navigation)</h3>
+                    <ul class="muted" style="margin-top:10px; padding-left:18px;">
+                        <li>Jetson Nano untuk pemrosesan data sensor/kamera</li>
+                        <li>Computer vision untuk identifikasi objek / kondisi area</li>
+                        <li>Perencanaan gerak tingkat tinggi (waypoint / mode teleop / semi-auto)</li>
+                        <li>Monitoring & logging</li>
+                    </ul>
+                    <p class="note" style="margin-top:10px">
+                        Tujuan: komputasi berat dipusatkan di SBC agar controller tetap responsif.
+                    </p>
+                </div>
+
+                <div class="card box col-6">
+                    <h3 style="margin-top:0">Low-level (Motion Control)</h3>
+                    <ul class="muted" style="margin-top:10px; padding-left:18px;">
+                        <li>Teensy 4.1 sebagai pengendali real-time</li>
+                        <li>Gait control & sinkronisasi kaki</li>
+                        <li>Command servo via Dynamixel (U2D2)</li>
+                        <li>Proteksi dasar: limit posisi, limit kecepatan, dan penanganan error</li>
+                    </ul>
+                    <p class="note" style="margin-top:10px">
+                        Tujuan: gerakan stabil, latency rendah, dan lebih aman saat beban tinggi.
+                    </p>
+                </div>
+
+                <div class="card box col-12">
+                    <h3 style="margin-top:0">Data Flow (Ringkas)</h3>
+                    <p class="muted" style="margin-top:10px;">
+                        <b>Jetson Nano</b> (perception / command) → komunikasi (UART/USB) → <b>Teensy 4.1</b> (gait +
+                        kinematics) →
+                        <b>U2D2</b> → <b>Dynamixel AX-12A</b> (aktuator kaki).
+                    </p>
+                    <p class="note" style="margin-top:8px;">
+                        Kalau kamu pakai ROS2, bagian Jetson bisa jadi node untuk publish command & subscribe state.
+                    </p>
+                </div>
+            </div>
         </section>
+
+        <!-- CONTROL -->
+        <section id="control">
+            <div class="section-title">
+                <div>
+                    <h2>Motion & Control</h2>
+                    <p>Konsep gait, stabilitas, dan strategi kontrol yang dipakai.</p>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card box col-6">
+                    <h3 style="margin-top:0">Gait Strategy</h3>
+                    <p class="muted" style="margin-top:10px;">
+                        Hexapod mendukung pola gait berbasis phase-shift antar kaki untuk menjaga stabilitas.
+                        Pola ini dapat diatur sesuai kebutuhan (misalnya: lebih cepat vs lebih stabil).
+                    </p>
+                    <ul class="muted" style="margin-top:10px; padding-left:18px;">
+                        <li>Stabilitas meningkat dengan distribusi tumpuan yang konsisten</li>
+                        <li>Gerakan lebih halus dengan interpolasi target posisi</li>
+                        <li>Mendukung pengembangan: turning gait / obstacle aware gait</li>
+                    </ul>
+                </div>
+
+                <div class="card box col-6">
+                    <h3 style="margin-top:0">Control & Safety</h3>
+                    <p class="muted" style="margin-top:10px;">
+                        Kontrol servo dilakukan dengan batasan parameter untuk mengurangi risiko lonjakan arus dan
+                        fault.
+                        Ketika terjadi error komunikasi atau overload, sistem dapat menahan perintah / kembali ke state
+                        aman.
+                    </p>
+                    <ul class="muted" style="margin-top:10px; padding-left:18px;">
+                        <li>Limit posisi & speed untuk menghindari gerakan ekstrem</li>
+                        <li>Monitoring status servo (opsional jika telemetry aktif)</li>
+                        <li>Fail-safe sederhana: stop / neutral pose</li>
+                    </ul>
+                </div>
+
+                <div class="card box col-12">
+                    <h3 style="margin-top:0">What I Built (Peran Utama)</h3>
+                    <p class="muted" style="margin-top:10px;">
+                        Contoh yang bisa kamu sesuaikan:
+                        saya mengerjakan integrasi Jetson–Teensy, penyusunan struktur kontrol gerak (gait control),
+                        serta debugging stabilitas gerakan dan komunikasi servo melalui U2D2.
+                    </p>
+                    <p class="note" style="margin-top:8px;">
+                        Kalau kamu mau, kirim poin peran kamu yang paling akurat, nanti aku buatkan versi “HR-friendly”
+                        + versi teknis.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES / CHALLENGES -->
+        <section id="features">
+            <div class="section-title">
+                <div>
+                    <h2>Features & Challenges</h2>
+                    <p>Poin pembeda engineer: apa yang dibuat + apa yang sulit + bagaimana diselesaikan.</p>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card box col-6">
+                    <h3 style="margin-top:0">Key Features</h3>
+                    <ul class="muted" style="margin-top:10px; padding-left:18px;">
+                        <li>Modular architecture (high-level vs low-level)</li>
+                        <li>Teleoperation ready + pengembangan ke semi-autonomous</li>
+                        <li>Integrasi kamera/sensor untuk misi SAR</li>
+                        <li>Monitoring & logging (untuk debugging lapangan)</li>
+                    </ul>
+                </div>
+
+                <div class="card box col-6">
+                    <h3 style="margin-top:0">Challenges & Lessons Learned</h3>
+                    <ul class="muted" style="margin-top:10px; padding-left:18px;">
+                        <li>Sinkronisasi servo agar tidak terjadi lonjakan arus saat start</li>
+                        <li>Latency komunikasi (SBC ↔ controller) mempengaruhi respons gait</li>
+                        <li>Stabilitas gait di permukaan tidak rata (tuning parameter & pose)</li>
+                        <li>Manajemen error servo dan strategi fail-safe</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPECS -->
+        <section id="specs">
+            <div class="section-title">
+                <div>
+                    <h2>Specs (Summary)</h2>
+                    <p>Ringkasan spesifikasi yang mudah dibaca reviewer.</p>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card box col-6">
+                    <h3 style="margin-top:0">Hardware</h3>
+                    <div class="muted">
+                        <div><b>Compute:</b> Jetson Nano</div>
+                        <div><b>Controller:</b> Teensy 4.1</div>
+                        <div><b>Actuator:</b> Dynamixel AX-12A</div>
+                        <div><b>Interface:</b> U2D2</div>
+                        <div><b>Chassis:</b> 3D design (custom)</div>
+                    </div>
+                    <p class="note" style="margin-top:10px;">
+                        Tambahkan sensor spesifik (IMU, depth camera, lidar, dll) jika sudah final.
+                    </p>
+                </div>
+
+                <div class="card box col-6">
+                    <h3 style="margin-top:0">Software</h3>
+                    <div class="muted">
+                        <div><b>Language:</b> Python, C/C++</div>
+                        <div><b>Control:</b> gait control + basic safety constraints</div>
+                        <div><b>Monitoring:</b> logging/debugging</div>
+                        <div><b>Framework (opsional):</b> ROS/ROS2</div>
+                    </div>
+                    <p class="note" style="margin-top:10px;">
+                        Kalau kamu punya repo GitHub, taruh link di bawah.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section id="gallery">
+            <div class="section-title">
+                <div>
+                    <h2>Gallery</h2>
+                    <p>Tambahkan foto PCB/wiring/robot biar terlihat “engineer”.</p>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card box col-4 project">
+                    <div class="thumb">
+                        <img class="image" src="../images/HEXA.jpg" alt="Hexapod robot - overview" />
+                    </div>
+                    <h3 style="margin:10px 0 0">Robot Overview</h3>
+                    <p class="note" style="margin-top:6px;">Chassis & mechanical layout.</p>
+                </div>
+
+                <div class="card box col-4 project">
+                    <div class="thumb">
+                        <img class="image" src="../images/ROS.jpg" alt="ROS / software integration" />
+                    </div>
+                    <h3 style="margin:10px 0 0">Software Integration</h3>
+                    <p class="note" style="margin-top:6px;">Monitoring / control pipeline.</p>
+                </div>
+
+                <div class="card box col-4 project">
+                    <div class="thumb">
+                        <img class="image" src="../images/side.PNG" alt="3D design side view" />
+                    </div>
+                    <h3 style="margin:10px 0 0">3D Design</h3>
+                    <p class="note" style="margin-top:6px;">CAD view for assembly planning.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DOCUMENTATION -->
         <section id="Documentation">
             <div class="section-title">
                 <div>
                     <h2>Video Documentation</h2>
-                    <p>3 proyek terbaik (jelaskan input–proses–output + metrik).</p>
+                    <p>Video test / demo (autoplay muted loop). Ganti source sesuai file kamu.</p>
                 </div>
             </div>
 
@@ -103,24 +371,59 @@
                 <div class="card box col-4 project">
                     <div class="thumbVid">
                         <video class="media" autoplay muted loop playsinline preload="metadata">
-                        <source src="../video/CON1.mp4" type="video/mp4">
-                      </video>
+                            <source src="../video/CON1.mp4" type="video/mp4" />
+                            Browser kamu tidak mendukung video.
+                        </video>
                     </div>
-                    <h3 style="margin:0 0 6px">Ashibot v1.0</h3>
-                  </div>
-                  <div class="card box col-4 project">
+                    <h3 style="margin:10px 0 0">Ashibot v1.0</h3>
+                    <p class="note" style="margin-top:6px;">Basic gait test (teleoperation).</p>
+                </div>
+
+                <div class="card box col-4 project">
                     <div class="thumbVid">
                         <video class="media" autoplay muted loop playsinline preload="metadata">
-                        <source src="../video/CON1.mp4" type="video/mp4">
-                      </video>
+                            <source src="../video/CON1.mp4" type="video/mp4" />
+                            Browser kamu tidak mendukung video.
+                        </video>
                     </div>
-                    <h3 style="margin:0 0 6px">Ashibot v1.0</h3>
-                  </div>
+                    <h3 style="margin:10px 0 0">Ashibot v1.1</h3>
+                    <p class="note" style="margin-top:6px;">Improved stability / tuning (placeholder).</p>
+                </div>
 
+                <div class="card box col-4 project">
+                    <div class="thumbVid">
+                        <video class="media" autoplay muted loop playsinline preload="metadata">
+                            <source src="../video/CON1.mp4" type="video/mp4" />
+                            Browser kamu tidak mendukung video.
+                        </video>
+                    </div>
+                    <h3 style="margin:10px 0 0">Field Test</h3>
+                    <p class="note" style="margin-top:6px;">Test scenario (placeholder).</p>
+                </div>
+            </div>
+
+            <div class="card box" style="margin-top:14px">
+                <h3 style="margin-top:0">Links</h3>
+                <p class="muted" style="margin:10px 0 0">
+                    Repo: <a class="btn" href="#" target="_blank" rel="noreferrer">GitHub Repo</a>
+                    Demo: <a class="btn" href="#" target="_blank" rel="noreferrer">YouTube Demo</a>
+                </p>
+                <p class="note" style="margin-top:10px;">
+                    Isi link repo/demo kalau sudah siap. Kalau belum, boleh dikosongkan dulu.
+                </p>
             </div>
         </section>
 
+        <!-- FOOTER -->
+        <div class="footer">
+            © <span id="year"></span> Nyoman Sugiarte — Hexapod Robot (ASHIBOT)
+            <span style="display:inline-block; margin-left:10px;">
+                <a class="btn" href="#top">⬆️ Back to top</a>
+            </span>
+        </div>
     </main>
+
+    <script src="../script/script.js"></script>
 </body>
 
 </html>
