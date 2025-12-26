@@ -45,7 +45,7 @@
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const data = new FormData(form);
-    note.textContent = `✅ Terima kasih, ${data.get("name")}. (Demo)`;
+    note.textContent = `✅ Terima kasih, ${data.get("name")}.`;
     form.reset();
   });
 })();
