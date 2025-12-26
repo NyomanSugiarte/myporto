@@ -101,17 +101,23 @@ a {
     gap: 10px;
     padding: 10px 14px;
     border-radius: 14px;
-    border: 1px solid var(--border);
+    border: 3px solid var(--border);
     background: rgba(255, 255, 255, .03);
     color: var(--text);
     cursor: pointer;
     transition: .2s;
     white-space: nowrap;
+    font-family: 'Courier New', Courier, monospace;
+
 }
 
 .btn:hover {
     transform: translateY(-1px);
     border-color: rgba(124, 58, 237, .45)
+}
+
+.btn.size {
+    font-size: 20px;
 }
 
 .btn.primary {
@@ -153,7 +159,7 @@ a {
     gap: 10px;
     align-items: center;
     padding: 6px 10px;
-    border-radius: 999px;
+    border-radius: 7px;
     border: 1px solid var(--border);
     color: var(--muted);
     font-size: 13px;
@@ -174,7 +180,8 @@ h1 {
 
 .lead {
     color: var(--muted);
-    font-size: 16px;
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
     margin: 0 0 18px
 }
 
@@ -189,7 +196,7 @@ h1 {
     align-items: center;
     gap: 8px;
     padding: 7px 10px;
-    border-radius: 999px;
+    border-radius: 7px;
     border: 1px solid var(--border);
     background: rgba(255, 255, 255, .02);
     color: var(--muted);
@@ -240,6 +247,8 @@ h1 {
     object-position: center;
     /* fokus di tengah */
     display: block;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
 }
 
 .stats {
@@ -340,11 +349,13 @@ section {
     /* penting biar gambar ikut radius */
     border: 1px solid rgba(255, 255, 255, .10);
 }
-.thumbVid{
-    height:160px;
-    border-radius:18px;
-    overflow:hidden;
-  }
+
+.thumbVid {
+    height: 160px;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
 .thumb img {
     width: 100%;
     height: 100%;
@@ -355,13 +366,20 @@ section {
     display: block;
 }
 
-.thumbVid .media{
-    width:100%;
-    height:100%;
-    object-fit:cover;          /* penuh box */
-    object-position:center 30%;    /* atur fokus */
-    display:block;
-  }
+.textStyle {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+}
+
+.thumbVid .media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* penuh box */
+    object-position: center 30%;
+    /* atur fokus */
+    display: block;
+}
 
 .input {
     width: 100%;
@@ -400,4 +418,63 @@ code.inline {
     border: 1px solid var(--border);
     border-radius: 10px;
     background: rgba(255, 255, 255, .02)
+}
+
+/* ===== Dropdown Navbar ===== */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    min-width: 220px;
+    padding: 10px;
+    border-radius: 14px;
+
+    /* mengikuti gaya card kamu */
+    background: rgba(20, 22, 40, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: 0.18s ease;
+    z-index: 999;
+}
+
+.dropdown.open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 12px;
+    border-radius: 12px;
+
+    background: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.dropdown-item:hover {
+    background: rgba(255, 255, 255, 0.08);
 }
